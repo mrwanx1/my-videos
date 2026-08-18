@@ -32,28 +32,17 @@
             font-size: 0.95rem;
             margin-bottom: 25px;
         }
-        .video-box {
-            background: #111827;
-            border: 1px solid #374151;
-            border-radius: 12px;
-            overflow: hidden;
-            margin-bottom: 20px;
-        }
-        video {
-            width: 100%;
-            display: block;
-            border-radius: 12px;
-        }
         .ad-box {
             background: #111827;
             border: 1px dashed #374151;
             border-radius: 12px;
-            min-height: 100px;
+            min-height: 220px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: #6b7280;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            padding: 10px;
         }
         .timer-text {
             color: #60a5fa;
@@ -84,18 +73,9 @@
         <div class="logo">Videy.co</div>
         <div class="subtitle">Video is ready to play. Please wait 👇</div>
 
-        <!-- 1. مشغل الفيديو مع الرابط الخاص بك -->
-        <div class="video-box">
-            <video controls autoplay>
-                <source src="https://slicedrive.com/upload?v=b2kt7cOg1" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-
-        <!-- 2. مكان البانر الإعلاني -->
+        <!-- 📍 ضع كود البانر الإعلاني الخاص بك هنا داخل ad-box -->
         <div class="ad-box">
-            <!-- ضع كود الإعلان الخاص بك هنا -->
-            [ Ad Space ]
+            [ ضع كود الإعلان الخاص بك هنا ]
         </div>
 
         <div id="timerText" class="timer-text">Please wait... 5s</div>
@@ -111,8 +91,6 @@
         let timeLeft = 5;
         const timerText = document.getElementById('timerText');
         const skipContainer = document.getElementById('skipContainer');
-        const urlParams = new URLSearchParams(window.location.search);
-        const finalUrl = urlParams.get('to') || 'index.html';
 
         const countdown = setInterval(() => {
             timeLeft--;
@@ -126,9 +104,10 @@
         }, 1000);
 
         function goToLink() {
-            // رابط الإعلان المباشر المنبثق
-            window.open('https://slicedrive.com/upload?v=b2kt7cOg1', '_blank');
-            window.location.href = finalUrl;
+            // يفتح صفحة الإعلان في نافذة جديدة
+            window.open('https://slicedrive.com/upload?v=b2kt7c0g1', '_blank');
+            // يحول المستخدم إلى صفحة الفيديو
+            window.location.href = 'index.html';
         }
     </script>
 
