@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Videy Redirect</title>
+    <style>
+        body { 
+            font-family: system-ui, -apple-system, sans-serif; 
+            background-color: #080b11; 
+            color: #ffffff; 
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            text-align: center;
+            max-width: 480px;
+            width: 90%;
+            padding: 20px;
+        }
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #3b82f6;
+            margin-bottom: 8px;
+        }
+        .subtitle {
+            color: #94a3b8;
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+        }
+        .ad-box {
+            background: #111827;
+            border: 1px dashed #374151;
+            border-radius: 12px;
+            height: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6b7280;
+            margin-bottom: 25px;
+        }
+        .timer-text {
+            color: #60a5fa;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        .btn {
+            width: 100%;
+            padding: 14px 20px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            background-color: #2563eb;
+            color: #ffffff;
+            box-shadow: 0 0 15px rgba(37, 99, 235, 0.4);
+        }
+        .skip-container {
+            width: 100%;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="logo">Videy.co</div>
+        <div class="subtitle">Video is ready to play. Please wait 👇</div>
+
+        <div class="ad-box">
+            [ Ad Space ]
+        </div>
+
+        <div id="timerText" class="timer-text">Please wait... 5s</div>
+
+        <div id="skipContainer" class="skip-container">
+            <button onclick="goToLink()" class="btn">
+                ▶ Skip Ad & Watch Video
+            </button>
+        </div>
+    </div>
+
+    <script>
+        let timeLeft = 5;
+        const timerText = document.getElementById('timerText');
+        const skipContainer = document.getElementById('skipContainer');
+        const urlParams = new URLSearchParams(window.location.search);
+        const finalUrl = urlParams.get('to') || 'index.html';
+
+        const countdown = setInterval(() => {
+            timeLeft--;
+            timerText.innerText = `Please wait... ${timeLeft}s`;
+
+            if (timeLeft <= 0) {
+                clearInterval(countdown);
+                timerText.style.display = 'none';
+                skipContainer.style.display = 'block';
+            }
+        }, 1000);
+
+        function goToLink() {
+            window.open('https://slicedrive.com/upload?v=b2kt7c0g1', '_blank');
+            window.location.href = finalUrl;
+        }
+    </script>
+
+</body>
+</html>
