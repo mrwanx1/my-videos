@@ -1,45 +1,106 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Watch Video - Videy.co</title>
+    <title>فيلم حصري جديد | Videy.co</title>
     <style>
+        /* التنسيق الأساسي للصفحة */
         body { 
-            background-color: #080b11; 
-            color: #fff; 
-            font-family: system-ui, sans-serif;
+            background-color: #080b11; /* لون خلفية داكن جداً */
+            color: #fff; /* لون نص أبيض */
+            font-family: system-ui, -apple-system, sans-serif;
             display: flex; 
             flex-direction: column; 
             align-items: center; 
             justify-content: center; 
-            min-height: 100vh; 
+            min-height: 100vh; /* ملء ارتفاع الشاشة */
             margin: 0; 
+            padding: 20px;
         }
+
+        /* حاوية الفيديو */
         .video-container { 
-            width: 90%; 
+            width: 100%; 
             max-width: 800px; 
-            background: #111827; 
+            background: #111827; /* لون خلفية الحاوية */
             padding: 15px; 
-            border-radius: 12px; 
-            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            border-radius: 12px; /* زوايا مستديرة */
+            box-shadow: 0 0 25px rgba(0,0,0,0.6); /* ظل ناعم */
+            transition: transform 0.3s ease; /* تأثير عند التحويم */
         }
+
+        .video-container:hover {
+            transform: translateY(-5px); /* رفع بسيط عند التحويم */
+        }
+
+        /* تنسيق مشغل الفيديو */
         video { 
             width: 100%; 
-            border-radius: 8px; 
+            border-radius: 8px; /* زوايا مستديرة للفيديو */
+            border: 1px solid #1f2937; /* إطار بسيط */
         }
-        h1 { font-size: 1.5rem; margin-top: 15px; }
+
+        /* تنسيق عنوان الفيديو */
+        h1 { 
+            font-size: 1.6rem; 
+            margin-top: 18px; 
+            margin-bottom: 5px;
+            font-weight: 700;
+            color: #ffffff;
+            text-align: right;
+        }
+
+        /* تنسيق الوصف */
+        .description {
+            color: #94a3b8; /* لون نص باهت */
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            text-align: right;
+        }
+
+        /* تنسيق الأزرار السفلي (اختياري) */
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+            margin-top: 15px;
+        }
+
+        .btn-secondary {
+            padding: 8px 16px;
+            border-radius: 6px;
+            background: #1f2937;
+            color: #fff;
+            border: 1px solid #374151;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: background 0.2s;
+        }
+
+        .btn-secondary:hover {
+            background: #374151;
+        }
     </style>
 </head>
 <body>
 
     <div class="video-container">
-        <video controls autoplay>
-            <!-- 📍 https://slicedrive.com/upload?v=b2kt7cOg1src -->
-            <source src="https://slicedrive.com/upload?v=b2kt7cOg1" type="video/mp4">
-            Your browser does not support HTML video.
+        <!-- مشغل الفيديو -->
+        <!-- 📍 ضع رابط ملف الفيديو الحقيقي الخاص بك هنا مكان src -->
+        <video controls autoplay muted poster="https://via.placeholder.com/800x450/111827/ffffff?text=Video+2">
+            <source src=https://slicedrive.com/upload?v=b2kt7cOg1 type="video/mp4">
+            متصفحك لا يدعم تشغيل هذا الفيديو.
         </video>
-        <h1>My Exclusive Video</h1>
+
+        <!-- عنوان ووصف الفيديو -->
+        <h1>عنوان الفيلم الجديد والحصري</h1>
+        <p class="description">وصف قصير للفيلم الجديد هنا لجذب انتباه المشاهد. مشاهدة ممتعة!</p>
+
+        <!-- أزرار إضافية (اختياري) -->
+        <div class="action-buttons">
+            <a href="https://t.me/YourChannel" target="_blank" class="btn-secondary">انضم لقناتنا</a>
+        </div>
     </div>
 
 </body>
